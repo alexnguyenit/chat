@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            var socket = io();
+            $('form').submit(function(){
+              socket.emit('chat message', $('#m').val());
+              $('#m').val('');
+              return false;
+            });
+            socket.on('chat message', function(data){
+              $('#messages').append($('<li>').text(data.socket_id+': '+data.msg));
+            });
+        });
+    </script>
+</head>
+<body class="container">
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h1>This is home</h1>
+            <p>Chat Socket awesome</p>
+            
+            <% /* %>
+            <h2>Variable</h2>
+            <p><%= tagline %></p>
+            <h2>Loop</h2>
+            <ul>
+                <% drinks.forEach(function(drink) { %>
+                    <li><%= drink.name %> - <%= drink.drunkness %></li>
+                <% }); %>
+            </ul>
+            <% */ %>
+
+            <ul id="messages"></ul>
+            <form action="">
+              <input id="m" autocomplete="off" /><button>Send</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+</body>
+</html>
