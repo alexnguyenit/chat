@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font: 13px Arial;
+  padding-top:50px;
+}
+
+h1{
+  font-size: 18px;
+}
+
+main{
+  position: relative;
+}
+
+ul,li{
+  list-style: none;
+}
+
+li{
+  padding:10px 0px;
+}
+
+a{
+  cursor: pointer;
+}
+
+#chat{
+  background-color:#fff;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+#main-left{
+  width: 220px;
+  overflow-y: scroll;
+  float:left;
+  background-color: #dedede;
+  min-height: 100%;
+  z-index: 2;
+  -webkit-transition: all .6s ease;
+  -o-transition: all .6s ease;
+  transition: all .6s ease;
+  color:#000;
+  padding-top: 5px;
+  padding-left: 5px; 
+}
+
+#main-right{
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  transition: all .6s ease;
+}
+
+#messages{
+  height: 500px;
+  overflow-y: scroll;
+}
+
+/* Style images */
+main img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+/* Style the right image */
+main img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+/* Style time text */
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+/* Style time text */
+.time-left {
+  float: left;
+  color: #999;
+}
+
+.chatcontainer {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 5px;
+}
+.chatcontainer::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.jumbotron p {
+  font-size: 13px;
+}
+
+#box-chat{
+  width: 100%;
+  height: 40px;
+  position: relative;
+  background: #fff;
+  border-top: solid 1px #eee;
+}
+
+#box-chat textarea{
+  border: none;
+  font-size: 14px;
+  width: 100%;
+  padding: 5px;
+  padding-right: 150px;
+  height: 40px;
+  resize: none;
+}
+
+#box-chat #action-chat{
+  position: absolute;
+  right: 0;
+  width: 150px;
+  text-align: right;
+  top: 0;
+  padding: 5px;
+}
+
+#box-chat #action-chat a{
+  color: #989898;
+  display: inline-block;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  padding: 4px;
+}
+

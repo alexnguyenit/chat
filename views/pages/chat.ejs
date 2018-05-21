@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            var socket = io();
+            $('form').submit(function(){
+              socket.emit('chat message', $('#m').val());
+              $('#m').val('');
+              return false;
+            });
+            socket.on('chat message', function(data){
+              $('#messages').append($('<li>').text(data.socket_id+': '+data.msg));
+            });
+        });
+    </script>
+</head>
+<body class="container">
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main class="jumbotron">
+        <div id="chat">
+            <div id="main-left">
+                <p>Hoang Nguyen</p>
+                <input type="text" name="txtSearch" class="form-control">
+                <ul>
+                    <li><div>nu pham</div></li>
+                    <li><div>Tsu</div></li>
+                    <li><div>Thanh LQ</div></li>
+                </ul>
+            </div>
+            <div id="main-right">
+                <div id="messages">
+                    <div class="chatcontainer">
+                        <img src="/images/bandmember.jpg" alt="Avatar">
+                        <p>Hello. How are you today?</p>
+                        <span class="time-right">11:00</span>
+                    </div>
+
+                    <div class="chatcontainer darker">
+                        <img src="/images/avatar_g2.jpg" alt="Avatar" class="right">
+                        <p>Hey! I'm fine. Thanks for asking!</p>
+                        <span class="time-left">11:01</span>
+                    </div>
+
+                    <div class="chatcontainer">
+                        <img src="/images/bandmember.jpg" alt="Avatar">
+                        <p>Sweet! So, what do you wanna do today?</p>
+                        <span class="time-right">11:02</span>
+                    </div>
+
+                    <div class="chatcontainer darker">
+                        <img src="/images/avatar_g2.jpg" alt="Avatar" class="right">
+                        <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
+                        <span class="time-left">11:05</span>
+                    </div>
+                </div>
+                <div id="box-chat">
+                    <form>
+                        <textarea id="m" autocomplete="off"></textarea>
+                        <div id="action-chat"><a class="btn btn-default">Send</a></div>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+</body>
+</html>

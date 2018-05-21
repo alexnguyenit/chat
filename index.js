@@ -25,6 +25,10 @@ app.get('/about', function(req, res){
 	res.render('pages/about');
 });
 
+app.get('/chat', function(req, res){
+	res.render('pages/chat');
+});
+
 io.on('connection', function(socket){
 	console.log('a user connected');
 
