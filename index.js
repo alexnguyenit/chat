@@ -21,12 +21,21 @@ app.get('/', function(req, res){
     });
 });
 
+
 app.get('/about', function(req, res){
 	res.render('pages/about');
 });
 
 app.get('/chat', function(req, res){
 	res.render('pages/chat');
+});
+
+app.get('/login', function(req, res){
+	res.render('pages/login');
+});
+
+app.get('/register', function(req, res){
+	res.render('pages/register');
 });
 
 io.on('connection', function(socket){
